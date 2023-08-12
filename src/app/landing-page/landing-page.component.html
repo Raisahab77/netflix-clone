@@ -1,0 +1,205 @@
+<section class="relative bg-black">
+    <img class="opacity-30 w-full h-screen" src="../../assets/images/header-image.png" alt="">
+    <header>
+        <div class="absolute top-5 w-full flex justify-between items-center px-14">
+            <img class="w-40 h-auto" src="../../assets/images/logo.png" alt="">
+            <div class="">
+                <button
+                    class="bg-transparent hover:bg-red-600 text-red-600 font-semibold hover:text-white py-2 px-4 border border-secondary hover:border-transparent rounded">
+                    English
+                </button>
+                <button
+                    routerLink="/login"
+                    class="bg-red-600 hover:bg-white hover:text-red-600 text-white font-semibold py-2 px-4 hover:border-transparent rounded ml-3">
+                    Sign In
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="absolute top-20 w-full h-screen flex justify-center items-center">
+        <div class="w-3/5 p-12 text-center">
+            <h1 class="text-4xl text-white text-bold mb-5">Unlimited movies, TV shows and more.</h1>
+            <span class="text-white text-2xl block">Watch any where cancel anytime.</span><br>
+            <span class="text-white text-xl">Ready to watch? Enter your email to create or restart memebership.</span>
+            <div class="flex items-center justify-center w-full p-4">
+                <div class="w-3/5 emlFrm">
+                    <input class="p-3.5 rounded border border-gray-400 text-white" [(ngModel)]="email" type="email" id="email" placeholder="Email address">
+                    <button class="p-4 rounded bg-red-500 text-white" (click)="isUserExist()">Get Started <i class="fa-solid fa-angle-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-black flex justify-center">
+    <div class="flex w-4/5">
+        <div class="text-white w-3/5 my-auto">
+            <div class="h-fit p-14">
+                <h1 class="text-5xl font-bold mb-3">Enjoy on your TV.</h1>
+                <span class="text-xl mt-2">
+                    Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.
+                </span>
+            </div>
+        </div>
+    
+        <div class="2/5">
+            <img class="" src="../../assets/images/feature-1.png" alt="">
+        </div>
+    </div>
+</section>
+
+<section class="bg-black flex justify-center">
+    <div class="flex w-4/5">
+        <div class="2/5">
+            <img class="" src="../../assets/images/feature-2.png" alt="">
+        </div>
+        <div class="text-white w-3/5 my-auto">
+            <div class="h-fit p-4">
+                <h1 class="text-5xl font-bold mb-3">Download your shows to watch offline</h1>
+                <span class="text-xl mt-2">
+                    Save your favourites easily and always have something to watch.
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-black flex justify-center">
+    <div class="flex w-4/5">
+        <div class="text-white w-3/5 my-auto">
+            <div class="h-fit p-14">
+                <h1 class="text-5xl font-bold mb-3">Watch everywhere</h1>
+                <span class="text-xl">
+                    Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.
+                </span>
+            </div>
+        </div>
+        <div class="2/5">
+            <img class="" src="../../assets/images/feature-3.png" alt="">
+        </div>
+    </div>
+</section>
+
+<section class="bg-black flex justify-center">
+    <div class="flex w-4/5">
+        <div class="2/5">
+            <img class="" src="../../assets/images/feature-4.png" alt="">
+        </div>
+        <div class="text-white w-3/5 my-auto">
+            <div class="h-fit p-14">
+                <h1 class="text-5xl font-bold mb-3">Create profiles for kids</h1>
+                <span class="text-xl mt-2">
+                    Send children on adventures with their favourite characters in a space made just for them—free with your membership.
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-black py-20">
+    <h1 class="text-5xl font-bold text-center text-white bg-black p-14">Frequently Asked Questions</h1>
+    <div class="flex justify-center bg-black">
+        <div id="accordionFlushExample" class="w-4/5">
+
+            <div
+              class="rounded-none p-4 dark:border-neutral-600 dark:bg-neutral-800 mt-2">
+              <h2 class="mb-0 flex justify-between items-center" id="flush-headingOne">
+                <button
+                  class="group relative flex w-full items-center rounded-none border-0 bg-white text-2xl font-bold px-5 py-4 text-left text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+                  type="button"
+                  data-te-collapse-init
+                  data-te-collapse-collapsed
+                  data-te-target="#flush-collapseOne"
+                  aria-expanded="false"
+                  aria-controls="#flush-collapseOne">
+                  Accordion Item #1
+                </button>
+                <i class="fa-solid fa-plus text-2xl text-white font-bold mr-4"></i>
+              </h2>
+              <div
+                id="flush-collapseOne"
+                class="!visible hidden border-0"
+                data-te-collapse-item
+                aria-labelledby="flush-headingOne"
+                data-te-parent="#accordionFlushExample">
+                <div class="px-5 py-4 text-2xl text-white font-bold">
+                  Placeholder content for this accordion, which is intended to
+                  demonstrate the
+                  <code>.accordion-flush</code> class. This is the first item's
+                  accordion body.
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounded-none p-4 bg-white mt-2 dark:border-neutral-600 dark:bg-neutral-800">
+              <h2 class="mb-0 flex justify-between items-center" id="flush-headingTwo">
+                <button
+                  class="group text-2xl font-bold relative flex w-full items-center rounded-none border-0 bg-white px-5 py-4 text-left text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+                  type="button"
+                  data-te-collapse-init
+                  data-te-collapse-collapsed
+                  data-te-target="#flush-collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseTwo">
+                  Accordion Item #2
+                </button>
+                <i class="fa-solid fa-plus text-2xl text-white font-bold mr-4"></i>
+              </h2>
+              <div
+                id="flush-collapseTwo"
+                class="!visible hidden border-0"
+                data-te-collapse-item
+                aria-labelledby="flush-headingTwo"
+                data-te-parent="#accordionFlushExample">
+                <div class="px-5 py-4 text-2xl text-white font-bold">
+                  Placeholder content for this accordion, which is intended to
+                  demonstrate the
+                  <code>.accordion-flush</code> class. This is the second item's
+                  accordion body. Let's imagine this being filled with some actual
+                  content.
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="rounded-none p-4 bg-white mt-2 dark:border-neutral-600 dark:bg-neutral-800">
+              <h2 class="mb-0 flex justify-between items-center" id="flush-headingThree">
+                <button
+                  class="group text-2xl font-bold relative flex w-full items-center rounded-none border-0 bg-white px-5 py-4 text-left text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+                  type="button"
+                  data-te-collapse-init
+                  data-te-collapse-collapsed
+                  data-te-target="#flush-collapseThree"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseThree">
+                  Accordion Item #3
+                </button>
+                <i class="fa-solid fa-plus text-2xl text-white font-bold mr-4"></i>
+              </h2>
+              <div
+                id="flush-collapseThree"
+                class="!visible hidden"
+                data-te-collapse-item
+                aria-labelledby="flush-headingThree"
+                data-te-parent="#accordionFlushExample">
+                <div class="px-5 py-4 text-2xl text-white font-bold">
+                  Placeholder content for this accordion, which is intended to
+                  demonstrate the
+                  <code>.accordion-flush</code> class. This is the third item's
+                  accordion body. Nothing more exciting happening here in terms of
+                  content, but just filling up the space to make it look, at least
+                  at first glance, a bit more representative of how this would look
+                  in a real-world application.
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <p class="text-white text-2xl text-center mt-16">Ready to watch? Enter your email to create or restart memebership.</p>
+    <div class="flex items-center justify-center w-full p-4">
+        <div class="w-2/5 emlFrm">
+            <input class="p-4 text-white rounded border border-gray-400" type="email" id="email" placeholder="Email address">
+            <button class="p-3 rounded bg-red-500 text-xl text-white" (click)="isUserExist()">Get Started <i class="fa-solid fa-angle-right"></i></button>
+        </div>
+    </div>
+</section>

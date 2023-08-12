@@ -1,0 +1,36 @@
+.root:hover .child{
+    display: block;
+}
+
+.input-icons i {
+    position: absolute;
+}
+ 
+.input-icons {
+    overflow: hidden;
+    width: 10%;
+    transition: all 0.5s;
+}
+ 
+.icon {
+    padding-left: 10px;
+    min-width: 40px;
+}
+ 
+.input-field {
+    width: 100%;
+    padding: 7px;
+    color: white;
+    padding-left: 25%;
+    background-color: transparent;
+
+}
+.isInptVsbl{
+    width: 40%;
+    background-color: rgba(0, 0, 0, 0.799);
+}
+
+.bg-color{
+    background-color: rgba(0, 0, 0, 0.799);
+    transition: 0.5s;
+}

@@ -1,0 +1,67 @@
+.footer{
+    color: gray;
+}
+
+.img{
+    transition: 0.5s all ease-in-out;
+}
+
+.img:hover{
+    transform: scale(1.5);
+}
+
+.slider {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.slider::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.root-slider:hover .sliderBtn{
+    display: block;
+    background-color: rgba(0, 0, 0, 0.437);
+}
+
+.mat-dialog-container{
+    padding: 0px;
+
+    /* Add more styles */
+}
+
+.input-icons i {
+    position: absolute;
+}
+ 
+.input-icons {
+    overflow: hidden;
+    width: 10%;
+    transition: all 0.5s;
+}
+ 
+.icon {
+    padding-left: 10px;
+    min-width: 40px;
+}
+ 
+.input-field {
+    width: 100%;
+    padding: 7px;
+    color: white;
+    padding-left: 25%;
+    background-color: transparent;
+
+}
+
+.slider-main:hover .inner-div i{
+    display: inline-block;
+}
+
+.outer-div:hover .inner-div{
+    transition: all 0.5s ease-in;
+    left: 4px;
+}
+
+// .sliderBtn{
+//     display: none;
+// }

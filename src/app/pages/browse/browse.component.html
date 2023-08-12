@@ -1,0 +1,212 @@
+<div *ngIf="chooseRole" class="bg-neutral-900 w-full h-screen flex justify-center items-center">
+    <div class="w-3/5 h-3/5">
+        <h1 class="text-5xl text-white text-center">Who's watching?</h1>
+        <div class="w-full h-fit mt-4 mb-10 pt-5 pb-10 flex justify-between items-center text-gray-600">
+            <div class="w-1/5 cursor-pointer hover:text-gray-200" (click)="openBrowsePage('vikas')">
+                <div class="w-full p-2 bg-transparent hover:bg-gray-500">
+                    <img class="w-full" src="../../../assets/images/image1-avatar.png" alt="">
+                </div>
+                <p class="w-full text-center mt-3">Vikas Rai</p>
+            </div>
+            <div class="w-1/5 cursor-pointer hover:text-gray-200" (click)="openBrowsePage('akash')">
+                <div class="w-full p-2 bg-transparent hover:bg-gray-500">
+                    <img class="w-full" src="../../../assets/images/image2-avatar.jpg" alt="">
+                </div>
+                <p class="w-full text-center mt-3">Akash Rai</p>
+            </div>
+            <div class="w-1/5 cursor-pointer hover:text-gray-200" (click)="openBrowsePage('kids')">
+                <div class="w-full p-2 bg-transparent hover:bg-gray-500">
+                    <img class="w-full" src="../../../assets/images/children-avatar.png" alt="">
+                </div>
+                <p class="w-full text-center mt-3">Children</p>
+            </div>
+            <div class="w-1/5 cursor-pointer hover:text-gray-200">
+                <div class="w-full p-2 h-[166px] bg-transparent hover:bg-gray-500 flex items-center justify-center">
+                    <i class="fa-solid fa-circle-plus text-9xl"></i>
+                </div>
+                <p class="w-full text-center mt-3">Vikas Rai</p>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="border-2 border-gray-600 text-gray-600 px-8 py-3 hover:border-gray-200 hover:text-gray-200">Manage profile</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!chooseRole">
+
+    <section class="relative shadow-transparent">
+        <!-- <iframe class="w-screen h-screen"
+            src="../../../assets/images/header-image.png">
+        </iframe> -->
+        <img class="-z-50" src="../../../assets/images/header-image.png" alt="">
+        <div class="absolute bottom-1/3 left-[60px]">
+            <button class="py-3 px-8 bg-white text-black mr-2 rounded font-bold"><i class="fa-solid fa-play"></i>  Play</button>
+            <button class="py-3 px-8 bg-neutral-700 text-white rounded font-bold"><i class="fa-solid fa-circle-info"></i>  More Info</button>
+        </div>
+        <app-header></app-header>
+        <div class="absolute -bottom-20 px-8 py-4 w-full slider-main">
+            <div class="flex outer-div">
+                <h1 class="text-white text-2xl z-50 w-fit">Kyuki aap netflix dekh rhe ho</h1>
+                <div class="h-9 w-40 overflow-hidden relative">
+                    <div class="inner-div h-9 absolute -left-[66px] pt-1.5 text-cyan-500">
+                        <span class="text-sm" id="span">Explore All
+                            <i class="fa-solid fa-chevron-right hidden"></i></span>
+                    </div>
+                </div>  
+            </div>
+
+            <div class="relative root-slider">
+                <button class="text-white text-2xl h-full z-10 absolute left-0 p-5 hidden sliderBtn" (click)="back('slider1')"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="text-white text-2xl h-full z-10 absolute right-0 p-5 hidden sliderBtn" (click)="next('slider1')"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="w-full flex overflow-x-scroll slider z-0" id="slider1">
+                    <!-- <div *ngFor="let movie of movies;let i = index;" class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img class="w-full h-full rounded img" src="../../../assets/images/feature-1.png" alt="" id="img">
+                    </div> -->
+                    <div class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img class="w-full h-full rounded img" src="../../../assets/images/feature-1.png" alt="" id="img">
+                    </div>
+                    <div class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img class="w-full h-full rounded img" src="../../../assets/images/feature-1.png" alt="" id="img">
+                    </div>
+                    <div class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img class="w-full h-full rounded img" src="../../../assets/images/feature-1.png" alt="" id="img">
+                    </div>
+                    <div class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img class="w-full h-full rounded img" src="../../../assets/images/feature-4.png" alt="" id="img">
+                    </div>
+                    <div class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img class="w-full h-full rounded img" src="../../../assets/images/feature-3.png" alt="" id="img">
+                    </div>
+                    <div class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img class="w-full h-full rounded img" src="../../../assets/images/feature-2.png" alt="" id="img">
+                    </div>
+                    <div class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img class="w-full h-full rounded img" src="../../../assets/images/feature-1.png" alt="" id="img">
+                    </div>
+                    <div class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img class="w-full h-full rounded img" src="../../../assets/images/feature-3.png" alt="" id="img">
+                    </div>
+                    <div class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img class="w-full h-full rounded img" src="../../../assets/images/feature-1.png" alt="" id="img">
+                    </div>
+                    <div class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img class="w-full h-full rounded img" src="../../../assets/images/feature-2.png" alt="" id="img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="w-full pt-24 bg-neutral-900">
+        <div class="py-4 w-full px-8 slider-main">
+            <div class="flex outer-div">
+                <h1 class="text-white text-2xl z-50 w-fit">Because you have watched RRR</h1>
+                <div class="h-9 w-40 overflow-hidden relative">
+                    <div class="inner-div h-9 absolute -left-[66px] pt-1.5 text-cyan-500">
+                        <span class="text-sm" id="span">Explore All
+                            <i class="fa-solid fa-chevron-right hidden"></i></span>
+                    </div>
+                </div>  
+            </div>
+            <div class="relative root-slider">
+                <button class="text-white text-2xl h-full z-10 absolute left-0 p-5 hidden sliderBtn" (click)="back('slider2')"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="text-white text-2xl h-full z-10 absolute right-0 p-5 hidden sliderBtn" (click)="next('slider2')"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="overflow-x-scroll slider flex" id="slider2">
+                    <div *ngFor="let movie of movies;let i = index" class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img (mouseenter)="onMouseEnter('slider2-img',i)" (mouseleave)="onMouseLeave()" class="w-full h-full rounded img" src="../../../assets/images/feature-3.png" alt="" id="slider2-img{{i}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-6 py-4 w-full px-8 slider-main">
+            <div class="flex outer-div">
+                <h1 class="text-white text-2xl z-50 w-fit">Because you have watched RRR</h1>
+                <div class="h-9 w-40 overflow-hidden relative">
+                    <div class="inner-div h-9 absolute -left-[66px] pt-1.5 text-cyan-500">
+                        <span class="text-sm" id="span">Explore All
+                            <i class="fa-solid fa-chevron-right hidden"></i></span>
+                    </div>
+                </div>  
+            </div>
+            <div class="relative root-slider">
+                <button class="text-white text-2xl h-full z-10 absolute left-0 p-5 hidden sliderBtn" (click)="back('slider3')"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="text-white text-2xl h-full z-10 absolute right-0 p-5 hidden sliderBtn" (click)="next('slider3')"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="overflow-x-scroll slider flex" id="slider3">
+                    <div *ngFor="let movie of movies" class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img class="w-full h-full rounded img" src="../../../assets/images/feature-2.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="mt-6 py-4 w-full px-8 slider-main">
+            <div class="flex outer-div">
+                <h1 class="text-white text-2xl z-50 w-fit">Because you have watched RRR</h1>
+                <div class="h-9 w-40 overflow-hidden relative">
+                    <div class="inner-div h-9 absolute -left-[66px] pt-1.5 text-cyan-500">
+                        <span class="text-sm" id="span">Explore All
+                            <i class="fa-solid fa-chevron-right hidden"></i></span>
+                    </div>
+                </div>  
+            </div>
+            <div class="relative root-slider">
+                <button class="text-white text-2xl h-full z-10 absolute left-0 p-5 hidden sliderBtn" (click)="back('slider4')"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="text-white text-2xl h-full z-10 absolute right-0 p-5 hidden sliderBtn" (click)="next('slider4')"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="overflow-x-scroll slider flex" id="slider4">
+                    <div *ngFor="let movie of movies" class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img class="w-full h-full rounded img" src="../../../assets/images/feature-1.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="mt-6 py-4 w-full px-8 slider-main">
+            <div class="flex outer-div">
+                <h1 class="text-white text-2xl z-50 w-fit">Because you have watched RRR</h1>
+                <div class="h-9 w-40 overflow-hidden relative">
+                    <div class="inner-div h-9 absolute -left-[66px] pt-1.5 text-cyan-500">
+                        <span class="text-sm" id="span">Explore All
+                            <i class="fa-solid fa-chevron-right hidden"></i></span>
+                    </div>
+                </div>  
+            </div>
+            <div class="relative root-slider">
+                <button class="text-white text-2xl h-full z-10 absolute left-0 p-5 hidden sliderBtn" (click)="back('slider5')"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="text-white text-2xl h-full z-10 absolute right-0 p-5 hidden sliderBtn" (click)="next('slider5')"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="overflow-x-scroll slider flex" id="slider5">
+                    <div *ngFor="let movie of movies" class="min-w-[235px] h-[129px] mr-2 hover:cursor-pointer overflow-hidden" routerLink="/watch/576">
+                        <img class="w-full h-full rounded img" src="../../../assets/images/feature-1.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="w-full h-72 relative bottom-0 left-0 bg-neutral-900 flex justify-center footer">
+            <div class="w-4/5 p-12 text-xs">
+                <span class="block py-4">Questions? Call 000-800-919-1694</span>
+                <div class="flex justify-between w-full py-4">
+                    <span class="w-1/4">FAQ</span>
+                    <span class="w-1/4">Help Centre</span>
+                    <span class="w-1/4">Terms of Use</span>
+                    <span class="w-1/4">Privacy</span>
+                </div>
+                <div class="flex justify-between w-full py-4">
+                    <span class="w-1/4">Cookie Preferences</span>
+                    <span class="w-1/4">Corporate Information</span>
+                    <span class="w-1/4"> </span>
+                    <span class="w-1/4"> </span>
+                </div>
+                <select class="bg-transparent p-2 border border-gray-400" name="" id="">
+                    <option value="" selected><i class="fa-solid fa-globe"></i>English</option>
+                    <option value=""><i class="fa-solid fa-globe"></i>Hindi</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+</div>

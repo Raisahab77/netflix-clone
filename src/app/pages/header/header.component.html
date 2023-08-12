@@ -1,0 +1,82 @@
+<header id="header" class="top-0 pt-3 z-50 w-full flex items-center px-14 fixed">
+    <div class="w-3/5 flex text-white">
+        <img class="w-24 h-10 p-2" src="../../../assets/images/logo.png" alt="">
+        <nav class="w-4/5 p-2 text-sm font-semibold">
+            <ul class="flex justify-start">
+                <li class="list-none px-4"><a href="">Home</a></li>
+                <li class="list-none px-4"><a href="">TV Shows</a></li>
+                <li class="list-none px-4"><a href="">Movies</a></li>
+                <li class="list-none px-4"><a href="">New & Popular</a></li>
+                <li class="list-none px-4"><a href="">My List</a></li>
+                <li class="list-none px-4"><a href="">Browse by languages</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="w-2/5">
+        <nav class="">
+            <ul *ngIf="activeRole!='kids'" class="p-2 flex justify-end items-center text-white text-sm font-semibold">
+                <div (click)="onSearch()" class="input-icons relative hover:cursor-pointer" [class.isInptVsbl]="isInptVsbl">
+                    <i class="fa-solid fa-magnifying-glass icon text-2xl"></i>
+                    <input #search class="input-field"
+                          (blur)="onBlur()" type="search" [(ngModel)]="searchText">
+                </div>
+                <!-- <li class="px-3 hover:cursor-pointer" *ngIf="isSearchVsbl" (click)="onSearch()"><a><i class="fa-solid fa-magnifying-glass"></i></a></li> -->
+                <li class="px-3 hover:cursor-pointer" (click)="setActiveRole('kids')"><a>Children</a></li>
+                <li class="px-3 relative root"><a href=""><i class="fa-regular fa-bell text-2xl"></i></a>
+                    <div class="bg-black py-2 opacity-90 absolute right-0 w-96 hidden child">
+                        <div class="flex w-full p-2">
+                            <div class="w-1/4">
+                                <img class="rounded" src="../../../assets/images/feature-2.png" alt="">
+                            </div>
+                            <div class="w-2/4 px-2 text-gray-300">
+                                <p>Continue watching</p>
+                                <p>F9: The fast saga</p>
+                                <p class="text-xs text-gray-700">3 week ago</p>
+                            </div>
+                        </div>
+                        <hr class="text-gray-300">
+                        <div class="flex w-full p-2">
+                            <div class="w-1/4">
+                                <img class="rounded" src="../../../assets/images/feature-2.png" alt="">
+                            </div>
+                            <div class="w-2/4 px-2 text-gray-300">
+                                <p>Continue watching</p>
+                                <p>F9: The fast saga</p>
+                                <p class="text-xs text-gray-700">3 week ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="px-3 hover:cursor-pointer relative root"><img src="https://occ-0-6246-2186.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABY20DrC9-11ewwAs6nfEgb1vrORxRPP9IGmlW1WtKuaLIz8VxCx5NryzDK3_ez064IsBGdXjVUT59G5IRuFdqZlCJCneepU.png?r=229" alt="">
+                    <div class="hidden bg-transparent pt-2 absolute right-0 child">
+                        <div class="bg-black w-48 opacity-90">
+                            <div class="p-2 text-sm font-normal">
+                                <li class="flex px-2 py-1 items-center"><img src="https://occ-0-6246-2186.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABdpkabKqQAxyWzo6QW_ZnPz1IZLqlmNfK-t4L1VIeV1DY00JhLo_LMVFp936keDxj-V5UELAVJrU--iUUY2MaDxQSSO-0qw.png?r=e6e" alt="" class="mr-2 w-1/4"><a class="hover:underline" href="">Akash</a></li>
+                                <li class="flex px-2 py-1 items-center" (click)="setActiveRole('kids')"><img src="https://occ-0-6246-2186.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABcJE6sna7-v-fDszqTSTLqoNLNTV8u6FCGOehw7JKWVmU-oLMoXYX6K0f2nKdOFZcATnH9GAw2kgTZTxZj1cEPt9GYnRYbc.png?r=54d" alt="" class="mr-2 w-1/4"><a class="hover:underline" routerLink="/kids">Children</a></li>
+                                <li class="px-2 py-1"><i class="fa-solid fa-pencil text-xl mr-2 w-1/4 text-center"></i><a class="hover:underline" href="">Manage Profiles</a></li>
+                                <li class="px-2 py-1"><i class="fa-solid fa-people-arrows text-xl mr-2 w-1/4 text-center"></i><a class="hover:underline" href="">Transfer Profile</a></li>
+                                <li class="px-2 py-1"><i class="fa-regular fa-user text-xl mr-2 w-1/4 text-center"></i><a class="hover:underline" href="">Account</a></li>
+                                <li class="px-2 py-1"><i class="fa-regular fa-circle-question text-xl mr-2 w-1/4 text-center"></i><a class="hover:underline" href="">Help Center</a></li>
+                            </div>
+                            <hr>
+                            <li class="py-3 text-center font-normal" (click)="signOut()"><a class="hover:underline">Sign out of Netflix</a></li>
+                        </div>  
+                    </div>
+                </li>
+            </ul>
+
+
+            <ul *ngIf="activeRole=='kids'" class="p-2 w-full float-right flex justify-end items-center text-white text-sm font-semibold">
+                <div (click)="onSearch()" class="input-icons hover:cursor-pointer" [class.isInptVsbl]="isInptVsbl">
+                    <i class="fa-solid fa-magnifying-glass icon text-2xl"></i>
+                    <input #search class="input-field"
+                          (blur)="onBlur()" type="search" [(ngModel)]="searchText">
+                </div>
+                <li class="px-3 hover:cursor-pointer relative root"><img src="https://occ-0-6246-2186.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABcJE6sna7-v-fDszqTSTLqoNLNTV8u6FCGOehw7JKWVmU-oLMoXYX6K0f2nKdOFZcATnH9GAw2kgTZTxZj1cEPt9GYnRYbc.png?r=54d" alt="">
+                </li>
+                <button class="bg-red-600 text-white rounded px-6 py-2" (click)="exitKids()">Exit Children</button>
+            </ul>
+        </nav>
+    </div>
+</header>
