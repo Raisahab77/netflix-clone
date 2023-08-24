@@ -1,0 +1,48 @@
+<div class="h-screen bg-neutral-900">
+    <section class="bg-neutral-900">
+        <app-header></app-header>
+        <div class="w-full h-full px-16 relative top-20">
+            <div class="flex justify-between">
+                <h2 class="text-white text-3xl">Browse By Languages</h2>
+                <div class="flex justify-end text-white items-center">
+                    <div>
+                        <label class="mr-2" for="">Select Your Preferences</label>
+                        <select class="bg-transparent w-48 border border-gray-400 bg-black p-2 mr-2" name="" id="">
+                            <option value="" selected>Original Language</option>
+                            <option value="">Dubbing</option>
+                            <option value="">Subtitles</option>
+                        </select>
+                        <select class="bg-transparent border w-40 border-gray-400 p-2 mr-2" name="" id="">
+                            <option value="">हिंदी</option>
+                            <option value="">English</option>
+                            <option value="">Bengali</option>
+                            <option value="">Tamil</option>
+                            <option value="">Telegu</option>
+                            <option value="">Punjabi</option>
+                            <option value="">French</option>
+                            <option value="">Polish</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="mr-2" for="">Sort By</label>
+                        <select class="bg-transparent w-48 border border-gray-400 bg-black p-2 mr-2" name="" id="">
+                            <option value="" selected>Suggestions for you</option>
+                            <option value="">Year Released</option>
+                            <option value="">A-Z</option>
+                            <option value="">Z-A</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="slider flex flex-wrap py-20">
+                <div *ngFor="let data of movies;let i = index" class="w-1/6 h-[140px] p-2 pl-0 hover:cursor-pointer overflow-hidden">
+                    <img class="w-full h-full rounded img" src="../../../assets/images/feature-3.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="w-full h-72 absolute botton-0 flex justify-center bg-neutral-900">
+        <app-footer class="w-full"></app-footer>
+    </section>
+</div>

@@ -34,3 +34,10 @@
     background-color: rgba(0, 0, 0, 0.799);
     transition: 0.5s;
 }
+
+.active{
+    color: rgb(199, 194, 194);
+}
+.active:hover{
+    cursor: default;
+}

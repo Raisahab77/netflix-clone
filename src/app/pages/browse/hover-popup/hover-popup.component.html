@@ -7,7 +7,7 @@
         <div class="flex justify-between items-center">
             <div class="flex items-center">
                 <a href="" class="mr-2 w-[30px] h-[30px] flex items-center justify-center"><i class="fa-solid fa-circle-play text-3xl text-white"></i></a>
-                <a href="" class="mr-2 w-[30px] h-[30px] flex items-center justify-center border border-white rounded-full"><i class="fa-solid fa-plus text-white"></i></a>
+                <a (click)="addMovieToMyList(data._id)" class="mr-2 w-[30px] h-[30px] flex items-center justify-center border border-white rounded-full"><i class="fa-solid fa-plus text-white"></i></a>
                 <a href="" class="w-[30px] h-[30px] flex items-center justify-center border border-white rounded-full"><i class="fa-regular fa-thumbs-up text-white"></i></a>
             </div>
             <div>
@@ -18,16 +18,17 @@
         <div>
             <span class="text-green-600">99% Match</span>
             <div>
-                <span class="text-white border mr-2">U/A 13+</span>
-                <span class="text-white mr-2">16 Episodes</span>
-                <span class="text-white border">HD</span>
+                <span class="text-white border mr-2">{{data.certification}}</span>
+                <span class="text-white mr-2">{{data.duration}}</span>
+                <span class="text-white border">{{data.quality}}</span>
             </div>
         </div>
 
         <div class="flex items-center">
-            <span class="text-white mr-1">Romantic</span>
-            <span class="text-white text-2xl mr-1">&#8226; </span>
-            <span class="text-white">Comedy</span>
+            <span *ngFor="let genre of data.genres;let i = index;" class="text-white mr-1">
+                {{genre}}
+                <span *ngIf="i!=(data.genres.length-1)">&#x2022;</span>
+            </span>
         </div>
 
     </div>

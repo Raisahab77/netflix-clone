@@ -1,0 +1,15 @@
+<section class="bg-neutral-900">
+    <app-header></app-header>
+    <div class="w-full h-full px-16 relative top-20">
+        <h2 class="text-white text-3xl">My List</h2>
+        <div class="slider flex flex-wrap py-20">
+            <div *ngFor="let data of movies;let i = index" class="w-1/6 h-[140px] p-2 pl-0 hover:cursor-pointer overflow-hidden">
+                <img class="w-full h-full rounded img" src="../../../assets/images/feature-3.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="w-full h-72 flex justify-center bg-neutral-900">
+    <app-footer class="w-full"></app-footer>
+</section>

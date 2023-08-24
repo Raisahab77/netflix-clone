@@ -1,0 +1,10 @@
+// TODO Expend more transition effect fix
+// After expended button should be hidden
+.disp-block{
+    display: block;
+    transition: all 2s ease-in;               
+}
+
+.expand-more{
+    bottom: -20px;
+}

@@ -12,7 +12,7 @@ export class AuthService {
   apiUrl = environment.apiUrl;
 
   signIn(data:any){
-    return this._http.post(`${this.apiUrl}/user/login`,data);
+    return this._http.post(`${this.apiUrl}/users/login`,data);
   }
 
   test_404(){

@@ -3,12 +3,14 @@
         <img class="w-24 h-10 p-2" src="../../../assets/images/logo.png" alt="">
         <nav class="w-4/5 p-2 text-sm font-semibold">
             <ul class="flex justify-start">
-                <li class="list-none px-4"><a href="">Home</a></li>
-                <li class="list-none px-4"><a href="">TV Shows</a></li>
-                <li class="list-none px-4"><a href="">Movies</a></li>
-                <li class="list-none px-4"><a href="">New & Popular</a></li>
-                <li class="list-none px-4"><a href="">My List</a></li>
-                <li class="list-none px-4"><a href="">Browse by languages</a></li>
+                <!-- Router Active Link to detect active route and highlight it -->
+                <!-- Using exact = true because if we are on /browse/series it will highlight tv-show route and home route at same time because home starts with /browse and in other route we are not using exact to true because if we pass query params it will not highlight that route -->
+                <li class="list-none px-4"><a id="home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="/browse">Home</a></li>
+                <li class="list-none px-4"><a id="tv-show" routerLinkActive="active" routerLink="/browse/series">TV Shows</a></li>
+                <li class="list-none px-4"><a id="movies" routerLinkActive="active" routerLink="/browse/movies">Movies</a></li>
+                <li class="list-none px-4"><a id="new-popular" routerLinkActive="active" routerLink="/browse/new">New & Popular</a></li>
+                <li class="list-none px-4"><a id="my-list" routerLinkActive="active" routerLink="/browse/my-list">My List</a></li>
+                <li class="list-none px-4"><a id="by-language" routerLinkActive="active" routerLink="/browse/by-language">Browse by languages</a></li>
             </ul>
         </nav>
     </div>

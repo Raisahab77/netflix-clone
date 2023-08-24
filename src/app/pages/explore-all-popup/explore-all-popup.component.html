@@ -1,0 +1,28 @@
+<div *ngIf="isResCmpltd" class="bg-neutral-900 relative">
+    <i (click)="close()" class="fa-solid fa-xmark absolute top-8 right-10 text-white text-2xl cursor-pointer"></i>
+    <h2 class="text-4xl text-white text-center p-20 pb-8">{{data.title}}</h2>
+    <div class="p-12">
+        <div *ngFor="let movie of movies;let index = index" class="py-4 w-full px-4 slider-main">
+            <div class="flex outer-div">
+                <h1 class="text-white text-2xl z-50 w-fit">{{movie.title}}</h1>
+                <div class="h-9 w-40 overflow-hidden relative">
+                    <div class="inner-div h-9 absolute -left-[66px] pt-1.5 text-cyan-500">
+                        <span class="text-sm" id="span">Explore All
+                            <i class="fa-solid fa-chevron-right hidden"></i></span>
+                    </div>
+                </div>  
+            </div>
+            <div class="relative root-slider pb-6" [ngClass]="{'border-b':movie.movieId.length>7}">
+                <div class="slider flex flex-wrap" id="{{movie._id}}">
+                    <div *ngFor="let data of movie.movieId;let i = index" class="w-1/4 h-[170px] hover:cursor-pointer overflow-hidden p-2" id="{{'pop-up'+data._id}}" [ngClass]="{'hidden':i>7}">
+                        <img (mouseenter)="onMouseEnter('pop-up'+data._id,data)" (mouseleave)="onMouseLeave()" class="w-full h-full rounded img" src="../../../assets/images/feature-3.png" alt="" id="img{{'pop-up'+data._id}}">
+                    </div>
+                    <span (click)="expend(movie.movieId)" class="absolute expand-more w-full text-center cursor-pointer" *ngIf="movie.movieId.length>7">
+                        <i class="fa-solid fa-chevron-down text-white border px-2 py-1 rounded-full bg-neutral-900 text-xl"></i>
+                    </span>
+                    <!-- <button (click)="expend(movie.moviesData)" *ngIf="(movie.moviesData.length>7)" class="bg-red-300 text-white px-6 py-4">Load more</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

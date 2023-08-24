@@ -17,7 +17,12 @@ import { AuthInterceptorInterceptor } from './auth/interceptor/auth-interceptor.
 import { HeaderComponent } from './pages/header/header.component';
 import { KidsComponent } from './pages/browse/kids/kids.component';
 import {MatIconModule} from '@angular/material/icon';
-import { ResetPasswordComponent } from './auth/reset-password/reset-password.component'
+import { ResetPasswordComponent } from './auth/reset-password/reset-password.component';
+import { ExploreAllPopupComponent } from './pages/explore-all-popup/explore-all-popup.component';
+import { MoreInfoPopupComponent } from './pages/more-info-popup/more-info-popup.component';
+import { BrowseByLanguageComponent } from './pages/browse-by-language/browse-by-language.component';
+import { MyListComponent } from './pages/my-list/my-list.component';
+import { FooterComponent } from './pages/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,12 @@ import { ResetPasswordComponent } from './auth/reset-password/reset-password.com
     PlayerComponent,
     HeaderComponent,
     KidsComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ExploreAllPopupComponent,
+    MoreInfoPopupComponent,
+    BrowseByLanguageComponent,
+    MyListComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
