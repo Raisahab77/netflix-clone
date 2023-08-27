@@ -1,8 +1,8 @@
 
-<div class="bg-neutral-900 text-white text-xs relative">
+<div class="bg-neutral-900 text-white text-xs relative overflow-y-hidden">
     <i (click)="close()" class="fa-solid fa-xmark absolute top-8 right-10 text-white text-2xl cursor-pointer"></i>
-    <img class="w-full h-1/2" src="../../../assets/images/wednesday.jpg" alt="">
-    <div class="p-9">
+    <img class="w-full h-1/2" [src]="data.thumbnailImg" alt="">
+    <div class="p-9 w-full">
         <div class="w-full flex pb-6">
             <div class="w-[65%] pr-10">
                 <div class="flex justify-start items-center">
@@ -16,18 +16,17 @@
                     <span class="text-md border border-gray-400 px-1">A</span><span> nudity, self-harm, horror, crime, suicide</span>
                 </div>
                 <div class="mt-5">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi doloremque fugiat maxime, ipsa delectus voluptates omnis.
-                    Lorem, ipsum dolor.
+                    {{movieDetail.description}}
                 </div>
             </div>
             <div class="w-[35%]">
                 <div class="pb-3">
                     <span class="text-gray-400">Cast: </span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                    <span>{{movieDetail.cast|commaSepratedList}}</span>
                 </div>
                 <div class="pb-3">
                     <span class="text-gray-400">Geners: </span>
-                    <span>Lorem ipsum dolor sit amet consectetur.</span>
+                    <span>{{data.genres.join()}}</span>
                 </div>
                 <div>
                     <span class="text-gray-400">This show is: </span>
@@ -35,44 +34,48 @@
                 </div>
             </div>
         </div>
-        <div class="flex justify-between">
-            <span class="text-2xl">Episodes</span>
-            <select class="bg-transparent text-white border border-gray-400 rounded-none px-4 py-1" name="" id="">
-                <option class="text-black" value="">Season 1</option>
-                <option class="text-black" value="">Season 2</option>
-            </select>
-        </div>
-        <div>
-            <span class="text-white">Season 1 :</span><span class="text-md border border-gray-400 px-1">A</span><span> nudity, self-harm, horror, crime, suicide</span>
-        </div>
-    
-        <div *ngFor="let episode of episodes;let i = index" class="hover:bg-neutral-700 py-3">
-            <div class="flex py-2">
-                <div class="w-1/12 flex items-center justify-center">
-                    <span>{{i+1}}</span>
-                </div>
-                <div class="w-3/12 h-[80px]">
-                    <img class="h-full w-full" src="../../../assets/images/feature-1.png" alt="">
-                </div>
-                <div class="w-8/12 flex flex-col items-center px-7">
-                    <div class="flex w-full justify-between">
-                        <span>The hidden side</span>
-                        <span>47m</span>
-                    </div>
-                    <div class="text-xs pr-4 pt-2 text-gray-400">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam recusandae reprehenderit impedit iure possimus veritatis.
-                    </div>
-                </div>
+
+        <div *ngIf="data.showType==1">
+            <div class="flex justify-between">
+                <span class="text-2xl">Episodes</span>
+                <select class="bg-transparent text-white border border-gray-400 rounded-none px-4 py-1" name="" id="">
+                    <option class="text-black" value="">Season 1</option>
+                    <option class="text-black" value="">Season 2</option>
+                </select>
             </div>
-            <hr class="h-px bg-neutral-700 border-0">
+            <div class="bg-orange-300">
+                <span class="text-white">Season 1 :</span><span class="text-md border border-gray-400 px-1">A</span><span> nudity, self-harm, horror, crime, suicide</span>
+            </div>
+        
+            <div *ngFor="let episode of movieDetail.episodes;let i = index" class="hover:bg-neutral-700 py-3">
+                <div class="flex py-2">
+                    <div class="w-1/12 flex items-center justify-center">
+                        <span>{{episode.number}}</span>
+                    </div>
+                    <div class="w-3/12 h-[80px]">
+                        <img class="h-full w-full" [src]="episode.thumbnail" alt="">
+                    </div>
+                    <div class="w-8/12 flex flex-col items-center px-7">
+                        <div class="flex w-full justify-between">
+                            <span>{{episode.title}}</span>
+                            <span>{{episode.duration}}</span>
+                        </div>
+                        <div class="text-xs pr-4 pt-2 text-gray-400">
+                            {{episode.desc}}
+                        </div>
+                    </div>
+                </div>
+                <hr class="h-px bg-neutral-700 border-0">
+            </div>
+            
         </div>
     
-        <div>
+        <div class="pb-3">
             <h3 class="text-2xl">More Like this</h3>
-            <div class="slider flex flex-wrap">
-                <div *ngFor="let episode of episodes;let i = index" class="w-1/3 hover:cursor-pointer overflow-hidden py-2 pr-2" [ngClass]="{'hidden':i>5}">
+            <div class="slider flex flex-wrap relative pb-4" [ngClass]="{'border-b':moviesByGenres.length>7}">
+                <div *ngFor="let movie of moviesByGenres;let i = index" class="w-1/3 hover:cursor-pointer overflow-hidden py-2 pr-2" [ngClass]="{'hidden':i>5}">
                     <div class="text-neutral-400 h-fit bg-neutral-800">
-                        <img class="w-full h-2/5 rounded img" src="../../../assets/images/feature-3.png" alt="">
+                        <img class="w-full h-2/5 rounded img" [src]="movie.thumbnailImg" alt="">
                         <div class="px-3 py-5 h-fit">
                             <div class="flex justify-between">
                                 <div><span class="text-md border border-gray-400 px-1">A</span><span> 2018</span></div>
@@ -82,38 +85,34 @@
                         </div>
                     </div>
                 </div>
-                <span class="absolute expand-more w-full text-center cursor-pointer" *ngIf="episodes.length>7">
+                <span class="absolute expand-more w-full text-white text-center cursor-pointer" *ngIf="moviesByGenres.length>7">
                     <i class="fa-solid fa-chevron-down text-white border px-2 py-1 rounded-full bg-neutral-900 text-xl"></i>
                 </span>
-                <!-- <button (click)="expend(movie.moviesData)" *ngIf="(movie.moviesData.length>7)" class="bg-red-300 text-white px-6 py-4">Load more</button> -->
             </div>
         </div>
     
         <div>
             <h3 class="text-2xl">Trailers and more</h3>
-           <div class="flex w-full">
-                <div class="w-1/3 py-2 pr-2">
-                    <img src="../../../assets/images/feature-4.png" alt="">
-                    <h3 class="text-center">Season 2 : The Naked Director</h3>
-                </div>
-
-                <div class="w-1/3 py-2 pr-2">
-                    <img src="../../../assets/images/feature-4.png" alt="">
-                    <h3 class="text-center">Season 1 : The Naked Director</h3>
-                </div>
+           <div class="w-full flex">
+                <div *ngFor="let trailer of movieDetail.trailer;" class="w-1/3 py-2 pr-2">
+                    <div>
+                        <img [src]="trailer.thumbnail" alt="">
+                        <!-- <h3 class="text-center">Season 2 : The Naked Director</h3> -->
+                    </div>
+            </div>
            </div>
         </div>
     
         <div>
-            <h3 class="text-2xl pb-2 mt-8">About The Naked Director</h3>
+            <h3 class="text-2xl pb-2 mt-8">About {{movieDetail.title}}</h3>
             <div>
                 <div class="pb-1">
                     <span class="text-gray-400">Cast:</span>
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, suscipit. Iste aliquam, delectus expedita facilis voluptas facere! Ipsum aliquid ut delectus facilis non autem inventore velit corrupti, perferendis reiciendis illo.</span>
+                    <span>{{movieDetail.cast|commaSepratedList}}</span>
                 </div>
                 <div class="pb-1">
                     <span class="text-gray-400">Gener:</span>
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit</span>
+                    <span>{{data.genres.join()}}</span>
                 </div>
                 <div class="pb-1">
                     <span class="text-gray-400">This show is</span>

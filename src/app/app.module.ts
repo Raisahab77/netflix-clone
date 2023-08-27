@@ -23,6 +23,7 @@ import { MoreInfoPopupComponent } from './pages/more-info-popup/more-info-popup.
 import { BrowseByLanguageComponent } from './pages/browse-by-language/browse-by-language.component';
 import { MyListComponent } from './pages/my-list/my-list.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { CommaSepratedListPipe } from './custom/pipes/comma-seprated-list.pipe';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { FooterComponent } from './pages/footer/footer.component';
     BrowseByLanguageComponent,
     MyListComponent,
     FooterComponent,
+    CommaSepratedListPipe,
   ],
   imports: [
     BrowserModule,

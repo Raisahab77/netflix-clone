@@ -15,7 +15,7 @@
             <div class="relative root-slider pb-6" [ngClass]="{'border-b':movie.movieId.length>7}">
                 <div class="slider flex flex-wrap" id="{{movie._id}}">
                     <div *ngFor="let data of movie.movieId;let i = index" class="w-1/4 h-[170px] hover:cursor-pointer overflow-hidden p-2" id="{{'pop-up'+data._id}}" [ngClass]="{'hidden':i>7}">
-                        <img (mouseenter)="onMouseEnter('pop-up'+data._id,data)" (mouseleave)="onMouseLeave()" class="w-full h-full rounded img" src="../../../assets/images/feature-3.png" alt="" id="img{{'pop-up'+data._id}}">
+                        <img (mouseenter)="onMouseEnter('pop-up'+data._id,data)" (mouseleave)="onMouseLeave()" class="w-full h-full rounded img" [src]="data.thumbnailImg" alt="" id="img{{'pop-up'+data._id}}">
                     </div>
                     <span (click)="expend(movie.movieId)" class="absolute expand-more w-full text-center cursor-pointer" *ngIf="movie.movieId.length>7">
                         <i class="fa-solid fa-chevron-down text-white border px-2 py-1 rounded-full bg-neutral-900 text-xl"></i>

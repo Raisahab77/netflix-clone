@@ -69,3 +69,44 @@
 .shadow-box{
     box-shadow: 0px 18px 105px 131px #00000024
 }
+
+article{
+	background: #ddd;
+	width: 100%;
+	position: relative;
+	padding: 20px;
+	box-sizing: border-box;
+	border-radius: 10px;
+}
+
+article .line{
+	width: 100%;
+	height: 20px;
+	background: #bbb;
+	margin: 20px 0;
+	border-radius: 5px;
+}
+
+.shimmer{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 80%;
+	height: 100%;
+
+	background: linear-gradient(100deg,
+	rgba(255,255,255,0) 20%,
+	rgba(53, 51, 51, 0.5) 50%,
+	rgba(255,255,255,0) 80%);
+
+	animation: shimmer 2s infinite linear;
+}
+
+@keyframes shimmer{
+	from {
+		transform: translateX(-200%);
+	}
+	to{
+		transform: translateX(200%);
+	}
+}

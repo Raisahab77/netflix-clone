@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MoviesService } from '../services/movies.service';
 
 @Component({
   selector: 'app-more-info-popup',
@@ -10,16 +11,42 @@ export class MoreInfoPopupComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<MoreInfoPopupComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private _moviesService:MoviesService
   ) { }
 
-  episodes = [1,2,3,4,5,6,7,8,9,10];
+  // episodes:any;
+  movieDetail:any;
+  moviesByGenres:any;
   ngOnInit(): void {
     console.log(this.data);
+    this.getMovieDetail(this.data._id);
+
+    let type = 0 ;
+    let genre = this.data.genres[0];
+    this.getMoviesByCategory(type,genre);
   }
 
   close(){
     this.dialogRef.close();
+  }
+
+  getMovieDetail(id:string){
+    this._moviesService.getMovieDetail(id).subscribe({
+      next:(response:any)=>{
+        console.log(response);
+        this.movieDetail = response.data;
+      }
+    })
+  }
+
+  getMoviesByCategory(type:number,genre:string){
+    this._moviesService.getMoviesByCategory(type,genre).subscribe({
+      next:(response:any)=>{
+        console.log(response);
+        this.moviesByGenres = response.data;
+      }
+    })
   }
 
 }

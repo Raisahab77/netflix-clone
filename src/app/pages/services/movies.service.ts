@@ -14,16 +14,20 @@ export class MoviesService {
     return this._http.get(this.apiUrl+`/lists?type=${type}&genres=${genre}`);
   }
 
+  getAllMovies(){
+    return this._http.get(this.apiUrl+`/movies`);
+  }
+
   getMovieById(id:string){
     return this._http.get(this.apiUrl+'/movies/'+id);
   }
 
-  getMoviesByCategory(category:string){
-    return this._http.get(this.apiUrl+'/movies/category/'+category);
-  }
-
   getRandomMovie(type:number,genre:string){
     return this._http.get(this.apiUrl+`/movies/random?type=${type}&genres=${genre}`);
+  }
+  
+  getMoviesByCategory(type:number,genre:string){
+    return this._http.get(this.apiUrl+`/movies/category?type=${type}&genres=${genre}`);
   }
 
   getMyMovieList(userId:string){
@@ -32,5 +36,9 @@ export class MoviesService {
 
   addMovieToMyList(movieData:any){
     return this._http.post(this.apiUrl+`/my-list`,movieData);
+  }
+
+  getMovieDetail(id:string){
+    return this._http.get(this.apiUrl+`/movie-detail/${id}`);
   }
 }

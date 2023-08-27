@@ -1,6 +1,6 @@
-<div (mouseleave)="onMouseLeave()" class="w-full h-full p-0 m-0">
+<div (mouseleave)="onMouseLeave()" class="w-full h-full p-0 m-0 rounded-none">
     <div class="w-full h-1/2 bg-green-500">
-        <img class="w-full h-full" src="../../../../assets/images/feature-3.png" alt="">
+        <img class="w-full h-full" [src]="data.thumbnailImg" alt="">
     </div>
     <div class="w-full h-1/2 p-4 bg-neutral-900 flex flex-col justify-between">
 

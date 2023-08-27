@@ -34,6 +34,24 @@ export class BrowseComponent implements OnInit{
   slider:any;
   defaultTransform:any;
   displayMovie:any;
+  isLoading:boolean = true;
+  dummyData = [
+    {
+      "data1":[1,2,3,4,5,6,7,8,9,10]
+    },
+    {
+      "data1":[1,2,3,4,5,6,7,8,9,10]
+    },
+    {
+      "data1":[1,2,3,4,5,6,7,8,9,10]
+    },
+    {
+      "data1":[1,2,3,4,5,6,7,8,9,10]
+    },
+    {
+      "data1":[1,2,3,4,5,6,7,8,9,10]
+    }
+  ]
 
   ngOnInit(): void {
     let activeRole = localStorage.getItem('activeRole');
@@ -43,26 +61,26 @@ export class BrowseComponent implements OnInit{
     this.slider = document.getElementById("slider");
     this.defaultTransform=0
     let url = this._router.url;
-    let type,genre;
+    let type: number,genre: string;
     if(url==='/browse')
     {
       type = 0 ;
       genre = '';
-      this.getAllMovies(type,genre);
+      this.getAllMoviesList(type,genre);
       this.getRandomMovie(type,genre);
     }
     else if(url==='/browse/series')
     {
       type = 1;
       genre = '';
-      this.getAllMovies(type,genre);
+      this.getAllMoviesList(type,genre);
       this.getRandomMovie(type,genre);
     }
     else if(url==='/browse/movies')
     {
       type = 2;
       genre = '';
-      this.getAllMovies(type,genre);
+      this.getAllMoviesList(type,genre);
       this.getRandomMovie(type,genre);
     }
   }
@@ -119,11 +137,12 @@ export class BrowseComponent implements OnInit{
   }
 
   // this function gets all movies data from api 
-  getAllMovies(type:number,genre:string){
+  getAllMoviesList(type:number,genre:string){
     this._moviesService.getAllMoviesList(type,genre).subscribe({
       next:(response:any)=>{
         console.log(response);
         this.movies = response.data;
+        this.isLoading = false;
       }
     })
   }
