@@ -1,17 +1,23 @@
-<div (mouseleave)="onMouseLeave()" class="w-full h-full p-0 m-0 rounded-none">
-    <div class="w-full h-1/2 bg-green-500">
-        <img class="w-full h-full" [src]="data.thumbnailImg" alt="">
+<div (click)="navToWatch()" (mouseleave)="onMouseLeave()" class="w-full h-full p-0 m-0 rounded-none cursor-pointer bg-neutral-900">
+    <div class="w-full relative h-1/2 p-0">
+        <img *ngIf="!data.movieUrl || data.movieUrl=='' " class="w-full h-full" [src]="data.thumbnailImg" alt="">
+        <video class="w-full h-full bg-cover bg-center" *ngIf="data.movieUrl!=''" [src]="data.movieUrl" id="hover-video" autoplay></video>
+        <div class="absolute z-10 bottom-4 right-3">
+            <button *ngIf="!isMute" (click)="muteVideo('hover-video');$event.stopPropagation();" class="text-white mr-4 speaker rounded-full py-1 px-1.5"><i class="fa-solid fa-volume-high"></i></button>
+            <button *ngIf="isMute" (click)="muteVideo('hover-video');$event.stopPropagation();" class="text-white mr-4 speaker rounded-full py-1 px-2"><i class="fa-solid fa-volume-xmark"></i></button>
+        </div>
     </div>
     <div class="w-full h-1/2 p-4 bg-neutral-900 flex flex-col justify-between">
 
         <div class="flex justify-between items-center">
             <div class="flex items-center">
-                <a href="" class="mr-2 w-[30px] h-[30px] flex items-center justify-center"><i class="fa-solid fa-circle-play text-3xl text-white"></i></a>
-                <a (click)="addMovieToMyList(data._id)" class="mr-2 w-[30px] h-[30px] flex items-center justify-center border border-white rounded-full"><i class="fa-solid fa-plus text-white"></i></a>
-                <a href="" class="w-[30px] h-[30px] flex items-center justify-center border border-white rounded-full"><i class="fa-regular fa-thumbs-up text-white"></i></a>
+                <a (click)="navToWatch();$event.stopPropagation();" class="mr-2 w-[30px] h-[30px] cursor-pointer flex items-center justify-center"><i class="fa-solid fa-circle-play text-3xl text-white"></i></a>
+                <a *ngIf="!data.isFavourite" (click)="addMovieToMyList(data._id);$event.stopPropagation();" class="cursor-pointer mr-2 w-[30px] h-[30px] flex items-center justify-center border border-white rounded-full"><i class="fa-solid fa-plus text-white"></i></a>
+                <a *ngIf="data.isFavourite" (click)="removeMovieFromMyList(data.myList._id);$event.stopPropagation();" class="cursor-pointer mr-2 w-[30px] h-[30px] flex items-center justify-center border border-white rounded-full"><i class="fa-solid fa-check text-white"></i></a>
+                <a class="w-[30px] h-[30px] cursor-pointer flex items-center justify-center border border-white rounded-full"><i class="fa-regular fa-thumbs-up text-white"></i></a>
             </div>
-            <div>
-                <i class="fa-solid fa-chevron-down text-white text-2xl"></i>
+            <div (click)="moreInfo(data);$event.stopPropagation();">
+                <i class="fa-solid fa-chevron-down text-white text-2xl cursor-pointer"></i>
             </div>
         </div>
 

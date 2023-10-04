@@ -8,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class PlayerComponent implements OnInit {
 
   constructor() { }
-  url = 'https://www.youtube.com/embd?v=-VUKEmqUKCM&t=3s&ab_channel=ThreeMinions';
 
   ngOnInit(): void {
-    this.url = this.url.replace("watch?v=", "v/");
+    let video : any = document.querySelector("video");
+    debugger
+    console.log(video);
   }
 
 }

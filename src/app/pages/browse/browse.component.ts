@@ -52,6 +52,24 @@ export class BrowseComponent implements OnInit{
       "data1":[1,2,3,4,5,6,7,8,9,10]
     }
   ]
+  isMute = false;
+
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    this.autoPlayPauseOnScroll();
+  }
+
+  @HostListener('window:blur', ['$event'])
+    onBlur(event: any): void {
+        // Do something
+        this.pauseVideoOnWindowChange();
+    }
+  
+  // @HostListener('window:focus', ['$event'])
+  // onFocus(event: any): void {
+  //     // Do something
+  //     this.playVideoOnWindowOpen();
+  // }
 
   ngOnInit(): void {
     let activeRole = localStorage.getItem('activeRole');
@@ -178,11 +196,39 @@ export class BrowseComponent implements OnInit{
 
   moreInfo(data:any){
     this.dialogRef.open(MoreInfoPopupComponent,{
-      width:'50%',
+      width:'60%',
       height:'90%',
       panelClass:'custom-dialog-container',
       data:data
     });
+  }
+
+  muteVideo(){
+    // let muted = document.querySelector("video")?.muted;
+    // muted = !this.muted;
+    let video : any = document.querySelector("video");
+    video.muted = !video.muted;
+    this.isMute = !this.isMute;
+  }
+
+  autoPlayPauseOnScroll(){
+    let scrollValue = window.scrollY;
+    let video : any = document.querySelector("video");
+    if(scrollValue>800){
+      video.pause();
+    }else{
+      video.play();
+    }
+  }
+
+  pauseVideoOnWindowChange(){
+    let video : any = document.querySelector("video");
+    video.pause();
+  }
+
+  playVideoOnWindowOpen(){
+    let video : any = document.querySelector("video");
+    video.play();
   }
 
 }

@@ -49,4 +49,17 @@ export class MoreInfoPopupComponent implements OnInit {
     })
   }
 
+  expend(movieData:any){
+    console.log(movieData);
+    let documentData : any[] = [];
+    for(let i=0;i<movieData.length;i++){
+      let data = document.getElementById('more-items'+movieData[i]._id);
+      console.log(data);
+      data?.classList.add('disp-block');
+      documentData.push(data);
+    }
+
+    console.log(documentData);
+  }
+
 }

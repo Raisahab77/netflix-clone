@@ -1,3 +1,25 @@
 .expand-more{
     bottom: -20px;
 }
+
+.more-items:hover i{
+    display: block;
+}
+
+.trailer-more:hover i{
+    display: block;
+}
+
+.more-info:hover #close{
+    display: block;
+}
+
+.play-icon{
+    background-color: rgba(0, 0, 0, 0.749);
+    border-radius: 60%;
+}
+
+.disp-block{
+    display: block;
+    transition: all 2s ease-in;               
+}

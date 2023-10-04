@@ -38,6 +38,10 @@ export class MoviesService {
     return this._http.post(this.apiUrl+`/my-list`,movieData);
   }
 
+  removeMovieFromMyList(id:string){
+    return this._http.delete(this.apiUrl+`/my-list/${id}`);
+  }
+
   getMovieDetail(id:string){
     return this._http.get(this.apiUrl+`/movie-detail/${id}`);
   }

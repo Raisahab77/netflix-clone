@@ -48,12 +48,14 @@ export class ExploreAllPopupComponent implements OnInit {
     })
   }
 
-  expend(movieData:any){
+  expend(movieData:any,expand:any){
     console.log(movieData);
     for(let i=0;i<movieData.length;i++){
-      let data = document.getElementById(movieData[i].id);
+      let data = document.getElementById('pop-up'+movieData[i]._id);
       data?.classList.add('disp-block');
     }
+    let expanded = document.getElementById(expand);
+    expanded?.classList.add('hidden');
   }
 
   log(msg:any){

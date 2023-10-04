@@ -17,7 +17,7 @@
                     <div *ngFor="let data of movie.movieId;let i = index" class="w-1/4 h-[170px] hover:cursor-pointer overflow-hidden p-2" id="{{'pop-up'+data._id}}" [ngClass]="{'hidden':i>7}">
                         <img (mouseenter)="onMouseEnter('pop-up'+data._id,data)" (mouseleave)="onMouseLeave()" class="w-full h-full rounded img" [src]="data.thumbnailImg" alt="" id="img{{'pop-up'+data._id}}">
                     </div>
-                    <span (click)="expend(movie.movieId)" class="absolute expand-more w-full text-center cursor-pointer" *ngIf="movie.movieId.length>7">
+                    <span (click)="expend(movie.movieId,'expand'+index)" class="absolute expand-more w-full text-center cursor-pointer" *ngIf="movie.movieId.length>7" id="{{'expand'+index}}">
                         <i class="fa-solid fa-chevron-down text-white border px-2 py-1 rounded-full bg-neutral-900 text-xl"></i>
                     </span>
                     <!-- <button (click)="expend(movie.moviesData)" *ngIf="(movie.moviesData.length>7)" class="bg-red-300 text-white px-6 py-4">Load more</button> -->
